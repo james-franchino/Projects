@@ -1,26 +1,43 @@
-This was a challenging first project and required a lot of trial, error, and googling on my part. I have done my best to document every source for everything I did not learm directly from Udacity below:
+Bike Share Data
+Over the past decade, bicycle-sharing systems have been growing in number and popularity in cities across the world. Bicycle-sharing systems allow users to rent bicycles on a very short-term basis for a price. This allows people to borrow a bike from point A and return it at point B, though they can also return it to the same location if they'd like to just go for a ride. Regardless, each bike can serve several users per day.
 
-Use .value_counts came from https://www.marsja.se/pandas-count-occurrences-in-column-unique-values/ which I found on July 02, 2022
-Use of .mode()[0] came from Udacity project practice problem 1 and corresponding documentation on July 01, 2022
-Use of DataFrame.iloc came from code reviewers suggestion and from https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html on July 02, 2022
-Use of pandas.Series.dt.month and pandas.Series.dt.day came from code reviewers suggestion and from https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.month.html and https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.day.html
-Use of try/accept suggested by Udacity code reviewer and https://www.w3schools.com/python/python_try_except.asp
-Additionally the code block:
- if month != 'all':
-        months = ['January', 'February', 'March', 'April', 'May', 'June']
-        month = months.index(month) + 1
+Thanks to the rise in information technologies, it is easy for a user of the system to access a dock within the system to unlock or return bicycles. These technologies also provide a wealth of data that can be used to explore how these bike-sharing systems are used.
 
-        # filter by month to create the new dataframe
-        df = df[df['month'] == month]
-was provided by Udacity code reviewers 
+In this project, you will use data provided by Motivate, a bike share system provider for many major cities in the United States, to uncover bike share usage patterns. You will compare the system usage between three large cities: Chicago, New York City, and Washington, DC.
 
-and the basis for the code block:
-view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
-start_loc = 0
-while (?????):
-  print(df.iloc[????:????])
-  start_loc += 5
-  view_data = input("Do you wish to continue?: ").lower()
-Was provided by Udacity code reviewer and completed by me
+The Datasets
+Randomly selected data for the first six months of 2017 are provided for all three cities. All three of the data files contain the same core six (6) columns:
 
-Use of .str.startswith came from https://docs.python.org/3/library/stdtypes.html#str.startswith and https://www.tutorialspoint.com/python/string_startswith.htm and https://stackoverflow.com/questions/27275236/how-to-select-all-columns-whose-names-start-with-x-in-a-pandas-dataframe
+Start Time (e.g., 2017-01-01 00:07:57)
+End Time (e.g., 2017-01-01 00:20:53)
+Trip Duration (in seconds - e.g., 776)
+Start Station (e.g., Broadway & Barry Ave)
+End Station (e.g., Sedgwick St & North Ave)
+User Type (Subscriber or Customer)
+The Chicago and New York City files also have the following two columns:
+
+Gender
+Birth Year
+
+Statistics Computed
+You will learn about bike share use in Chicago, New York City, and Washington by computing a variety of descriptive statistics. In this project, you'll write code to provide the following information:
+
+#1 Popular times of travel (i.e., occurs most often in the start time)
+
+most common month
+most common day of week
+most common hour of day
+#2 Popular stations and trip
+
+most common start station
+most common end station
+most common trip from start to end (i.e., most frequent combination of start station and end station)
+#3 Trip duration
+
+total travel time
+average travel time
+#4 User info
+
+counts of each user type
+counts of each gender (only available for NYC and Chicago)
+earliest, most recent, most common year of birth (only available for NYC and Chicago)
